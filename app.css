@@ -1,0 +1,248 @@
+.notify-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: 0.5rem;
+  background: color-mix(in oklab, var(--muted) 55%, transparent);
+  border: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--foreground);
+}
+
+.notify-banner[data-level="success"] {
+  border-color: color-mix(in oklab, var(--foreground) 12%, transparent);
+}
+
+.notify-banner[data-level="warning"] {
+  background: color-mix(in oklab, var(--muted) 40%, transparent);
+}
+
+.notify-banner[data-level="error"] {
+  background: color-mix(in oklab, var(--destructive, var(--muted)) 18%, transparent);
+}
+
+.notify-banner-glyph {
+  flex: none;
+  width: 1rem;
+  text-align: center;
+  opacity: 0.85;
+  margin-top: 0.05rem;
+}
+
+.notify-banner-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.notify-banner-title {
+  font-weight: 550;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.notify-banner-text {
+  color: var(--muted-foreground);
+  overflow: hidden;
+  max-height: 5.4em; /* ~4 compact lines of rendered md */
+  margin-top: 0.1rem;
+}
+
+/* Host Markdown inside a dense banner — inherit size, tighten blocks. */
+.notify-banner-md {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.notify-banner-md :is(p, ul, ol, pre, blockquote, h1, h2, h3, h4, h5, h6) {
+  margin: 0.2em 0;
+}
+
+.notify-banner-md :is(h1, h2, h3, h4, h5, h6) {
+  font-size: 0.95em;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.notify-banner-md :is(ul, ol) {
+  padding-left: 1.1em;
+}
+
+.notify-banner-md pre,
+.notify-banner-md code {
+  font-size: 0.92em;
+}
+
+.notify-banner-md pre {
+  overflow: hidden;
+  max-height: 3.2em;
+}
+
+/* Sonner toast description with host Markdown. */
+.notify-toast-md {
+  font-size: 0.85em;
+  line-height: 1.35;
+  max-height: 8em;
+  overflow: hidden;
+}
+
+.notify-toast-md :is(p, ul, ol, pre, blockquote, h1, h2, h3, h4) {
+  margin: 0.15em 0;
+}
+
+.notify-toast-md :is(h1, h2, h3, h4) {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.notify-banner-meta {
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  margin-top: 0.15rem;
+}
+
+button.notify-header-btn {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+button.notify-header-btn:focus-visible {
+  outline: 2px solid color-mix(in oklab, canvasText 35%, transparent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.notify-header-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  max-width: 12rem;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 0.45rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+  background: color-mix(in oklab, var(--muted) 55%, transparent);
+  color: var(--foreground);
+  font-size: 0.72rem;
+  line-height: 1;
+  cursor: default;
+}
+
+.notify-header-btn[data-compact="true"] {
+  max-width: none;
+  padding: 0 0.4rem;
+}
+
+.notify-header-btn[data-level="error"] {
+  background: color-mix(in oklab, var(--destructive, var(--muted)) 16%, transparent);
+}
+
+.notify-header-btn[data-level="warning"] {
+  background: color-mix(in oklab, var(--muted) 40%, transparent);
+}
+
+.notify-header-glyph {
+  flex: none;
+  opacity: 0.9;
+  font-size: 0.78rem;
+}
+
+.notify-header-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  color: var(--muted-foreground);
+}
+
+.notify-header-count {
+  flex: none;
+  font-variant-numeric: tabular-nums;
+  font-weight: 550;
+  color: var(--foreground);
+}
+
+.notify-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 0.15rem 0 0.35rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--foreground);
+}
+
+.notify-settings-heading {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.notify-settings-help,
+.notify-settings-muted {
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.notify-settings-error {
+  color: var(--destructive-text, var(--foreground));
+  font-size: 0.8rem;
+}
+
+.notify-settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.55rem 1rem;
+  margin: 0;
+}
+
+.notify-settings-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.notify-settings-grid dt {
+  margin: 0;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--muted-foreground);
+}
+
+.notify-settings-grid dd {
+  margin: 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.notify-settings-pill {
+  display: inline-flex;
+  align-items: center;
+  height: 1.2rem;
+  padding: 0 0.4rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 550;
+  border: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+  background: color-mix(in oklab, var(--muted) 60%, transparent);
+  color: var(--muted-foreground);
+}
+
+.notify-settings-pill[data-tone="active"] {
+  color: var(--foreground);
+  background: color-mix(in oklab, var(--muted) 35%, transparent);
+}
